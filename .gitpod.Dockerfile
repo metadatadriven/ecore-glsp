@@ -22,11 +22,17 @@ RUN sudo apt-get install xvfb libx11-dev libxkbfile-dev libxml2-utils -y
 
 USER gitpod
 
+# Change to J17 commented out becasue GLSP needs Java 11
 # Use Java 17 (default in image is Java 11)
 # https://www.gitpod.io/docs/introduction/languages/java#setting-up-a-custom-dockerfile
 #RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
 #	sdk install java 17.0.3-ms && \
 #	sdk default java 17.0.3-ms"
+
+# Default image has node.js v20 installed. We need version >=12.14.1 <13
+# so install and use lts/erbium -> v12.22.12
+RUN nvm install lts/erbium
+
 
 # install Yeoman generator at v4 'cos a bug when using v5
 # https://github.com/eclipse-theia/generator-theia-extension/issues/182
