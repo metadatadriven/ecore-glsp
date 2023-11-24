@@ -33,6 +33,8 @@ USER gitpod
 # so install and use lts/erbium -> v12.22.12
 RUN nvm install lts/erbium
 
+# Also we need Python 3.10 to workaround a problem building node-gyp with 3.11
+
 
 # install Yeoman generator at v4 'cos a bug when using v5
 # https://github.com/eclipse-theia/generator-theia-extension/issues/182
